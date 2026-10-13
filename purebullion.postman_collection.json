@@ -1,0 +1,1908 @@
+{
+  "info": {
+    "_postman_id": "1f3ac67a-a6bd-43f2-b42e-41a2dad9a616",
+    "name": "purebullion",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48160838",
+    "_collection_link": "https://go.postman.co/collection/48160838-1f3ac67a-a6bd-43f2-b42e-41a2dad9a616?source=collection_link"
+  },
+  "variable": [
+    {
+      "key": "baseURL",
+      "value": "http://localhost:5000/api/v1",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "YOUR_ACCESS_TOKEN_HERE",
+      "type": "string"
+    },
+    {
+      "key": "planId",
+      "value": "REPLACE_WITH_PLAN_ID",
+      "type": "string"
+    },
+    {
+      "key": "subscriptionId",
+      "value": "REPLACE_WITH_SUBSCRIPTION_ID",
+      "type": "string"
+    },
+    {
+      "key": "postId",
+      "value": "REPLACE_WITH_POST_ID",
+      "type": "string"
+    },
+    {
+      "key": "commentId",
+      "value": "REPLACE_WITH_COMMENT_ID",
+      "type": "string"
+    },
+    {
+      "key": "reportId",
+      "value": "REPLACE_WITH_REPORT_ID",
+      "type": "string"
+    },
+    {
+      "key": "supportId",
+      "value": "REPLACE_WITH_SUPPORT_MESSAGE_ID",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "registration",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"jishad\",\r\n  \"email\": \"uers1@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/auth/register",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "registration",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"jishad\",\r\n  \"email\": \"uers1@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/auth/register",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [],
+              "cookie": [],
+              "body": "{\n    \"statusCode\": 201,\n    \"success\": true,\n    \"message\": \"Registered user successfully!\",\n    \"data\": {\n        \"_id\": \"6acd9df9f4b6f699aa98821b\",\n        \"name\": \"jishad\",\n        \"email\": \"uers1@gmail.com\",\n        \"role\": \"USER\",\n        \"profileImage\": \"\"\n    },\n    \"responseTime\": \"184ms\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"admin@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/auth/login",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "refresh-access-token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/auth/refresh-access-token",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "auth",
+                "refresh-access-token"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "forget-password",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"email\" : \"bdcallingjahidul@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/auth/forget-password",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "auth",
+                "forget-password"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "verify-code",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"otp\" : \"949321\",\r\n    \"email\": \"bdcallingjahidul@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/auth/verify-code",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "auth",
+                "verify-code"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reset-password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"bdcallingjahidul@gmail.com\",\r\n  \"newPassword\": \"jishad123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/auth/reset-password",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "auth",
+                "reset-password"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "change-password",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"oldPassword\":\"jishad123\",\r\n  \"newPassword\":\"jishad12345\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/auth/change-password",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "auth",
+                "change-password"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "logout",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/auth/logout",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "profile",
+      "item": [
+        {
+          "name": "get User by Id",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/user/me",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "user",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update user",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\" : \"jishad shikdar\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/user/me",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "user",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete user",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/user/me",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "user",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "upload avatar",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "profileImage",
+                  "type": "file",
+                  "src": ""
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseURL}}/user/upload-avatar",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "user",
+                "upload-avatar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update avatar",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "profileImage",
+                  "type": "file",
+                  "src": ""
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseURL}}/user/upload-avatar",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "user",
+                "upload-avatar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete avatar",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/user/upload-avatar",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "user",
+                "upload-avatar"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "subscription",
+      "item": [
+        {
+          "name": "1. Plans (Public & Admin)",
+          "item": [
+            {
+              "name": "Get All Subscription Plans",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/subscription/plans",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "plans"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Single Plan by ID",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/subscription/plans/{{planId}}",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "plans",
+                    "{{planId}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create Plan (Admin)",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Enterprise\",\r\n  \"slug\": \"enterprise\",\r\n  \"description\": \"Institutional-grade market intelligence and custom API integrations.\",\r\n  \"monthlyPrice\": 249,\r\n  \"yearlyPrice\": 2400,\r\n  \"currency\": \"USD\",\r\n  \"benefits\": [\r\n    \"Advanced AI research tools\",\r\n    \"Unlimited watchlists\",\r\n    \"Exclusive market insights\",\r\n    \"Priority community access\",\r\n    \"Custom alert preferences\"\r\n  ],\r\n  \"features\": {\r\n    \"marketOverview\": true,\r\n    \"stockScreener\": \"advanced\",\r\n    \"watchlistLimit\": -1,\r\n    \"unlimitedWatchlists\": true,\r\n    \"marketAlerts\": \"custom\",\r\n    \"aiMarketAnalysis\": true,\r\n    \"premiumResearchAccess\": true,\r\n    \"advancedAiResearchTools\": true,\r\n    \"exclusiveMarketInsights\": true,\r\n    \"priorityCommunityAccess\": true,\r\n    \"customAlertPreferences\": true\r\n  },\r\n  \"isActive\": true,\r\n  \"isPopular\": false,\r\n  \"sortOrder\": 4\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/subscription/plans",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "plans"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Plan (Admin)",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Professional\",\r\n  \"description\": \"Advanced intelligence and AI powered research for active investors.\",\r\n  \"monthlyPrice\": 89,\r\n  \"yearlyPrice\": 850,\r\n  \"benefits\": [\r\n    \"Advanced stock screener\",\r\n    \"Unlimited watchlists\",\r\n    \"AI-powered market analysis\",\r\n    \"Premium research access\"\r\n  ],\r\n  \"features\": {\r\n    \"marketOverview\": true,\r\n    \"stockScreener\": \"advanced\",\r\n    \"watchlistLimit\": -1,\r\n    \"unlimitedWatchlists\": true,\r\n    \"marketAlerts\": \"advanced\",\r\n    \"aiMarketAnalysis\": true,\r\n    \"premiumResearchAccess\": true\r\n  },\r\n  \"isActive\": true\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/subscription/plans/{{planId}}",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "plans",
+                    "{{planId}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Plan (Admin)",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/subscription/plans/{{planId}}",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "plans",
+                    "{{planId}}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "2. User Subscription & Billing",
+          "item": [
+            {
+              "name": "Subscribe / Buy Plan",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"planId\": \"{{planId}}\",\r\n  \"billingCycle\": \"monthly\",\r\n  \"paymentMethod\": \"card\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/subscription/subscribe",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "subscribe"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get My Active Subscription",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/subscription/my-subscription",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "my-subscription"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Check Feature Access",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/subscription/feature-access/aiMarketAnalysis",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "feature-access",
+                    "aiMarketAnalysis"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Cancel My Subscription",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/subscription/cancel",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "cancel"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Billing History",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/subscription/billing-history?page=1&limit=10",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "billing-history"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Invoice Receipt JSON Data",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/subscription/billing-history/{{subscriptionId}}/receipt",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "billing-history",
+                    "{{subscriptionId}}",
+                    "receipt"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Download Single Invoice (HTML)",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/subscription/billing-history/{{subscriptionId}}/download",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "billing-history",
+                    "{{subscriptionId}}",
+                    "download"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Download All Invoices Statement (HTML)",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/subscription/billing-history/download-all",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "billing-history",
+                    "download-all"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "3. Admin Subscribers & Overview",
+          "item": [
+            {
+              "name": "Get Subscribers & Overview Stats (Merged)",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/subscription/admin/subscribers?status=all&search=&page=1&limit=10",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "admin",
+                    "subscribers"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "all",
+                      "description": "all | active | suspended | expired | cancelled"
+                    },
+                    {
+                      "key": "search",
+                      "value": "",
+                      "description": "Search by subscriber name or email"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Overview Statistics Card",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/subscription/admin/statistics",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "admin",
+                    "statistics"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Subscriber & User Details (Eye Button)",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/subscription/admin/subscribers/{{subscriptionId}}",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "admin",
+                    "subscribers",
+                    "{{subscriptionId}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Subscriber Status (Admin)",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"status\": \"SUSPENDED\",\r\n  \"notes\": \"Temporarily suspended by admin\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/subscription/admin/subscribers/{{subscriptionId}}/status",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "admin",
+                    "subscribers",
+                    "{{subscriptionId}}",
+                    "status"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Subscriber Record (Trash Button)",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/subscription/admin/subscribers/{{subscriptionId}}",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "admin",
+                    "subscribers",
+                    "{{subscriptionId}}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "community",
+      "item": [
+        {
+          "name": "1. Feed & Posts",
+          "item": [
+            {
+              "name": "Get Community Statistics (Top 3 Cards)",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/community/statistics",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "community",
+                    "statistics"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Community Feed (Filtered & Sorted)",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/community/posts?topic=all&sort=trending&search=&page=1&limit=10",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "community",
+                    "posts"
+                  ],
+                  "query": [
+                    {
+                      "key": "topic",
+                      "value": "all",
+                      "description": "all | Signals | Education | Market discussion | Platform help"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "trending",
+                      "description": "trending | newest | most-replies"
+                    },
+                    {
+                      "key": "search",
+                      "value": ""
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Public Community Feed (No Auth)",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/community/posts/public?topic=all&sort=newest&page=1&limit=10",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "community",
+                    "posts",
+                    "public"
+                  ],
+                  "query": [
+                    {
+                      "key": "topic",
+                      "value": "all"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "newest"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Single Post by ID",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/community/posts/{{postId}}",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "community",
+                    "posts",
+                    "{{postId}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create New Post (JSON)",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"How are people sizing the NVDA setup relative to their stop?\",\r\n  \"content\": \"The stop is 2.9% away which is tighter than most of the signals I've taken this quarter. Curious whether people size to a fixed dollar risk or a fixed position size.\",\r\n  \"topic\": \"Signals\",\r\n  \"media\": [\r\n    \"https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80\"\r\n  ],\r\n  \"mediaType\": \"image\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/community/posts",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "community",
+                    "posts"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create New Post (Multipart File Upload)",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "title",
+                      "value": "Gold & Silver Breakout Analysis",
+                      "type": "text"
+                    },
+                    {
+                      "key": "content",
+                      "value": "Sharing our latest chart setup for bullion breakout levels this week.",
+                      "type": "text"
+                    },
+                    {
+                      "key": "topic",
+                      "value": "Market discussion",
+                      "type": "text"
+                    },
+                    {
+                      "key": "files",
+                      "type": "file",
+                      "src": ""
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseURL}}/community/posts",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "community",
+                    "posts"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Post",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"Updated: How are people sizing the NVDA setup relative to their stop?\",\r\n  \"content\": \"Updated content with risk management notes.\",\r\n  \"topic\": \"Signals\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/community/posts/{{postId}}",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "community",
+                    "posts",
+                    "{{postId}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Post",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/community/posts/{{postId}}",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "community",
+                    "posts",
+                    "{{postId}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Toggle Like / Love on Post",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/community/posts/{{postId}}/like",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "community",
+                    "posts",
+                    "{{postId}}",
+                    "like"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "2. Comments & Replies",
+          "item": [
+            {
+              "name": "Get Comments for Post",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/community/posts/{{postId}}/comments?page=1&limit=20",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "community",
+                    "posts",
+                    "{{postId}}",
+                    "comments"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Add Comment to Post",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"content\": \"Fixed dollar risk has completely changed my consistency this quarter!\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/community/posts/{{postId}}/comments",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "community",
+                    "posts",
+                    "{{postId}}",
+                    "comments"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Add Nested Reply to a Comment",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"content\": \"Totally agree! What percentage of account equity do you risk per trade?\",\r\n  \"parentCommentId\": \"{{commentId}}\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/community/posts/{{postId}}/comments",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "community",
+                    "posts",
+                    "{{postId}}",
+                    "comments"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Comment",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/community/comments/{{commentId}}",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "community",
+                    "comments",
+                    "{{commentId}}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "3. Reporting & Admin Moderation",
+          "item": [
+            {
+              "name": "Report Content (Post or Comment)",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"targetType\": \"post\",\r\n  \"targetId\": \"{{postId}}\",\r\n  \"reasons\": [\r\n    \"Spam or promotion\",\r\n    \"Misleading financial content\"\r\n  ],\r\n  \"description\": \"This post promotes unverified external trading links.\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/community/report",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "community",
+                    "report"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Reported Content (Admin)",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/community/admin/reports?page=1&limit=10&status=pending",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "community",
+                    "admin",
+                    "reports"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "status",
+                      "value": "pending",
+                      "description": "pending | reviewed | dismissed | resolved"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Report Status (Admin)",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"status\": \"resolved\",\r\n  \"adminNotes\": \"Reviewed and action taken by moderator.\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/community/admin/reports/{{reportId}}",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "community",
+                    "admin",
+                    "reports",
+                    "{{reportId}}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "support",
+      "item": [
+        {
+          "name": "Submit Contact Us Message (Public - No Auth)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Ralph Edwards\",\r\n  \"email\": \"ralphedwards@gmail.com\",\r\n  \"phoneNumber\": \"+1 234 567 8900\",\r\n  \"message\": \"Hello, I would like to know more about the Professional subscription plan and market alerts.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/support/contact",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "support",
+                "contact"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Support Messages (Admin)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/support/admin/messages?status=all&search=&page=1&limit=10",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "support",
+                "admin",
+                "messages"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "all",
+                  "description": "all | pending | resolved"
+                },
+                {
+                  "key": "search",
+                  "value": "",
+                  "description": "Search by name, email, phone, or message"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Support Message Details - Eye Icon (Admin)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/support/admin/messages/{{supportId}}",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "support",
+                "admin",
+                "messages",
+                "{{supportId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Mark as Resolved & Reply to User via Email (Admin)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"replyMessage\": \"Hello Ralph, thank you for contacting PureBullion. The Professional plan includes unlimited watchlists and real-time market alerts. Let us know if you need any further assistance!\",\r\n  \"status\": \"resolved\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/support/admin/messages/{{supportId}}/resolve",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "support",
+                "admin",
+                "messages",
+                "{{supportId}}",
+                "resolve"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Support Message (Admin)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/support/admin/messages/{{supportId}}",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "support",
+                "admin",
+                "messages",
+                "{{supportId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
+

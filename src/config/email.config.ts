@@ -6,4 +6,8 @@ export default registerAs('email', () => ({
   address: process.env.EMAIL_ADDRESS,
   pass: process.env.EMAIL_PASS,
   from: process.env.EMAIL_FROM,
+  adminEmail:
+    process.env.ADMIN_EMAIL ||
+    process.env.EMAIL_FROM ||
+    process.env.EMAIL_ADDRESS,
 }));
