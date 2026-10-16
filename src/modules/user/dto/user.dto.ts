@@ -42,3 +42,8 @@ export class AdminUpdateUserDto extends UpdateUserDto {
   @IsBoolean()
   hasActiveSubscription?: boolean;
 }
+
+export class CloseAccountDto {
+  @IsOptional() @IsString() reason?: string;
+  @IsOptional() @IsString() feedback?: string;
+}

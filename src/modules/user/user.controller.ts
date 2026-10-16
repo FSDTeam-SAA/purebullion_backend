@@ -23,8 +23,14 @@ import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
 import { CurrentUser } from '../../common/decorators/current-user.decorator';
+import { Public } from '../../common/decorators/public.decorator';
 import { RoleType } from '../../common/enums/role.enum';
-import { GetUsersQueryDto, UpdateUserDto, AdminUpdateUserDto } from './dto/user.dto';
+import {
+  GetUsersQueryDto,
+  UpdateUserDto,
+  AdminUpdateUserDto,
+  CloseAccountDto,
+} from './dto/user.dto';
 
 // ─── Multer Storage Config ───────────
 const multerStorage = diskStorage({
@@ -194,6 +200,60 @@ export class UserController {
   @HttpCode(HttpStatus.OK)
   deletePDF(@CurrentUser('_id') userId: string) {
     return this.userService.deletePDF(userId);
+  }
+
+  // ─── Notification Preferences (Settings Screen matching Screenshot) ─
+  @Public()
+  @Get('notification-preferences')
+  getNotificationPreferences(
+    @CurrentUser('_id') userId?: string,
+  ): Promise<any> {
+    return this.userService.getNotificationPreferences(userId);
+  }
+
+  @Public()
+  @Put('notification-preferences')
+  updateNotificationPreferences(
+    @Body() dto: any,
+    @CurrentUser('_id') userId?: string,
+  ): Promise<any> {
+    return this.userService.updateNotificationPreferences(userId, dto);
+  }
+
+  // ─── Privacy and Data: 1. Export My Data ────────────────────────────
+  @Public()
+  @Get('privacy/export-data')
+  exportUserData(@CurrentUser('_id') userId?: string): Promise<any> {
+    return this.userService.exportUserData(userId);
+  }
+
+  // ─── Privacy and Data: 2. Delete AI Conversation History & Posts ────
+  @Public()
+  @Delete('privacy/conversations')
+  @HttpCode(HttpStatus.OK)
+  deleteConversationHistory(
+    @CurrentUser('_id') userId?: string,
+  ): Promise<any> {
+    return this.userService.deleteConversationHistory(userId);
+  }
+
+  // ─── Privacy and Data: 3. Close Account (90 Days Grace Period) ──────
+  @Public()
+  @Post('privacy/close-account')
+  @HttpCode(HttpStatus.OK)
+  closeAccount(
+    @Body() dto: CloseAccountDto,
+    @CurrentUser('_id') userId?: string,
+  ): Promise<any> {
+    return this.userService.closeAccount(userId, dto);
+  }
+
+  // ─── Privacy and Data: 4. Reopen Account (Within 90 Days) ───────────
+  @Public()
+  @Post('privacy/reopen-account')
+  @HttpCode(HttpStatus.OK)
+  reopenAccount(@CurrentUser('_id') userId?: string): Promise<any> {
+    return this.userService.reopenAccount(userId);
   }
 
   // ─── Admin CRUD (parameterized — MUST be last) ────────

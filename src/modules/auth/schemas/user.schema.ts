@@ -68,6 +68,15 @@ export class User {
 
   @Prop({ default: 'en' }) language: string;
 
+  @Prop({ default: false, index: true })
+  isClosed: boolean;
+
+  @Prop({ default: null })
+  closedAt?: Date;
+
+  @Prop({ default: null })
+  scheduledDeletionDate?: Date;
+
   comparePassword: (plain: string) => Promise<boolean>;
   generateAccessToken: (
     payload: object,

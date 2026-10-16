@@ -231,3 +231,34 @@ export class GetSignalsQueryDto {
   @IsIn(['newest', 'oldest'])
   sort?: string;
 }
+
+export class GetAdminSignalsQueryDto {
+  @IsOptional()
+  @IsString()
+  tab?: string = 'all'; // 'all' | 'performance' | 'archived'
+
+  @IsOptional()
+  @IsString()
+  status?: string; // 'active' | 'suspended' | 'archived'
+
+  @IsOptional()
+  @IsString()
+  search?: string;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  @Min(1)
+  page?: number = 1;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  @Min(1)
+  limit?: number = 9; // Matches "Showing 1 to 9 of 120 results"
+}
+
+export class UpdateAdminSignalStatusDto {
+  @IsEnum(['active', 'suspended', 'archived'])
+  status: string;
+}

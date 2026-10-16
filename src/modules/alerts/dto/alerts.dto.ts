@@ -95,6 +95,10 @@ export class NotificationTogglesDto {
 
   @IsOptional()
   @IsBoolean()
+  dailyBriefingEmail?: boolean;
+
+  @IsOptional()
+  @IsBoolean()
   weeklyWrapEmail?: boolean;
 }
 
