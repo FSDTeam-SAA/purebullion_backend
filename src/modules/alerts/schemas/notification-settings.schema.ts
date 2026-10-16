@@ -27,6 +27,9 @@ export class NotificationToggles {
   announcements: boolean;
 
   @Prop({ default: true })
+  dailyBriefingEmail: boolean;
+
+  @Prop({ default: true })
   weeklyWrapEmail: boolean;
 }
 

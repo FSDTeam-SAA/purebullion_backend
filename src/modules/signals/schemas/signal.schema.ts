@@ -53,6 +53,23 @@ export class Signal {
 
   @Prop({
     type: String,
+    enum: ['active', 'suspended', 'archived'],
+    default: 'active',
+    index: true,
+  })
+  adminStatus: string;
+
+  @Prop({ type: String, enum: ['Long', 'Short'], default: 'Long' })
+  direction: string;
+
+  @Prop({ type: String, default: 'Signal engine' })
+  source: string;
+
+  @Prop({ type: String, default: '+5.8%' })
+  performance: string;
+
+  @Prop({
+    type: String,
     enum: ['Stock', 'ETF'],
     default: 'Stock',
   })

@@ -205,6 +205,7 @@ export class AlertsService implements OnModuleInit {
           watchlistMovers: true,
           communityReplies: true,
           announcements: true,
+          dailyBriefingEmail: true,
           weeklyWrapEmail: true,
         },
         channels: {
