@@ -77,6 +77,38 @@ export class User {
   @Prop({ default: null })
   scheduledDeletionDate?: Date;
 
+  @Prop({
+    type: String,
+    enum: ['Active', 'Suspended', 'In Active'],
+    default: 'Active',
+    index: true,
+  })
+  status: string;
+
+  @Prop({ default: 'America/New_York' })
+  timezone: string;
+
+  @Prop({ default: Date.now })
+  lastActive: Date;
+
+  @Prop({ default: false })
+  isFoundingMember: boolean;
+
+  @Prop({ default: '' })
+  customUserId: string;
+
+  @Prop({ default: 'Essential' })
+  subscriptionTier: string; // 'Essential' | 'Professional' | 'Elite'
+
+  @Prop({ default: 42 })
+  articlesReadCount: number;
+
+  @Prop({ default: 24 })
+  aiConversationsCount: number;
+
+  createdAt?: Date;
+  updatedAt?: Date;
+
   comparePassword: (plain: string) => Promise<boolean>;
   generateAccessToken: (
     payload: object,
