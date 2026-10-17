@@ -1917,7 +1917,4476 @@
           "response": []
         }
       ]
+    },
+    {
+      "name": "dashboard",
+      "item": [
+        {
+          "name": "Get Dashboard Overview (Master Endpoint - Screenshot 1 & 2)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/dashboard/overview",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "dashboard",
+                "overview"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Daily Market Briefing (Screenshot 1 Left Box)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/dashboard/briefing",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "dashboard",
+                "briefing"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Setups Approaching Entry (Screenshot 1 Right Box)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/dashboard/approaching-entry",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "dashboard",
+                "approaching-entry"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Watchlist Movement (Screenshot 2 Bottom-Left Table)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/dashboard/watchlist-movement",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "dashboard",
+                "watchlist-movement"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Recently Closed Trades (Screenshot 2 Bottom-Right Box)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/dashboard/recently-closed",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "dashboard",
+                "recently-closed"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "market-data",
+      "item": [
+        {
+          "name": "Get Market Indices (S&P 500, NASDAQ, DOW, Russell, VIX, 10Y)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/market-data/indices",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "market-data",
+                "indices"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Market State (Open / Closed)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/market-data/market-state",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "market-data",
+                "market-state"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Market News",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/market-data/news?limit=20&symbol=",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "market-data",
+                "news"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "key": "symbol",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Top Gainers",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/market-data/gainers",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "market-data",
+                "gainers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Top Losers",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/market-data/losers",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "market-data",
+                "losers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Most Active (By Volume)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/market-data/most-active",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "market-data",
+                "most-active"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Upcoming / Recent Earnings",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/market-data/earnings?symbol={{symbol}}&outputsize=20",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "market-data",
+                "earnings"
+              ],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "{{symbol}}",
+                  "description": "Stock ticker e.g. NVDA, AAPL"
+                },
+                {
+                  "key": "outputsize",
+                  "value": "20"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Candlestick Chart (Time Series)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/market-data/chart/{{symbol}}?interval=1day&outputsize=90",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "market-data",
+                "chart",
+                "{{symbol}}"
+              ],
+              "query": [
+                {
+                  "key": "interval",
+                  "value": "1day",
+                  "description": "1min, 5min, 15min, 1h, 1day, 1week"
+                },
+                {
+                  "key": "outputsize",
+                  "value": "90"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Full Quote",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/market-data/quote/{{symbol}}",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "market-data",
+                "quote",
+                "{{symbol}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Company Profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/market-data/profile/{{symbol}}",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "market-data",
+                "profile",
+                "{{symbol}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Key Statistics (Market Cap, P/E, EPS, Shares)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/market-data/statistics/{{symbol}}",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "market-data",
+                "statistics",
+                "{{symbol}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Technical Indicators (RSI, MACD, SMA20, SMA50)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/market-data/indicators/{{symbol}}?interval=1day",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "market-data",
+                "indicators",
+                "{{symbol}}"
+              ],
+              "query": [
+                {
+                  "key": "interval",
+                  "value": "1day"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "signals",
+      "item": [
+        {
+          "name": "Seed Default Model Signals (Populate UI Demo Signals)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/signals/seed",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "signals",
+                "seed"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Signal Statistics (Total, New, Open, Closed, Win Rate)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/signals/stats",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "signals",
+                "stats"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Signals (Filtered & Paginated)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/signals?status=all&type=all&assetType=all&symbol=&sort=newest&page=1&limit=10",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "signals"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "all",
+                  "description": "NEW | OPEN | CLOSED | all"
+                },
+                {
+                  "key": "type",
+                  "value": "all",
+                  "description": "BUY | SELL | all"
+                },
+                {
+                  "key": "assetType",
+                  "value": "all",
+                  "description": "Stock | ETF | all"
+                },
+                {
+                  "key": "symbol",
+                  "value": "",
+                  "description": "e.g. NVDA, MSFT"
+                },
+                {
+                  "key": "sort",
+                  "value": "newest",
+                  "description": "newest | oldest"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Open Signals (Cards View - Screenshot 1)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/signals?status=OPEN&type=all&assetType=all&limit=10",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "signals"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "OPEN",
+                  "description": "OPEN / Active positions"
+                },
+                {
+                  "key": "type",
+                  "value": "all"
+                },
+                {
+                  "key": "assetType",
+                  "value": "all",
+                  "description": "Stock | ETF | all"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Closed Signals (Historical Outcome Records - Screenshot 2)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/signals?status=CLOSED&type=all&assetType=all&limit=10",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "signals"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "CLOSED",
+                  "description": "Completed trades"
+                },
+                {
+                  "key": "type",
+                  "value": "all"
+                },
+                {
+                  "key": "assetType",
+                  "value": "all"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Signal Details (By ID or SignalId)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/signals/{{signalId}}",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "signals",
+                "{{signalId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Signal (Admin Only)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201 || pm.response.code === 200) {",
+                  "    const res = pm.response.json();",
+                  "    const signal = res.data;",
+                  "    if (signal && signal._id) {",
+                  "        pm.collectionVariables.set(\"signalId\", signal._id);",
+                  "        console.log(\"Saved signalId:\", signal._id);",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"BUY\",\n  \"symbol\": \"NVDA\",\n  \"companyName\": \"NVIDIA Corporation\",\n  \"assetType\": \"Stock\",\n  \"entry\": 180.8,\n  \"target\": 194,\n  \"stopLoss\": 175.4,\n  \"confidence\": \"High\",\n  \"typicalHold\": \"3-10 sessions\",\n  \"rationaleTitle\": \"Momentum breakout continuation above six-session consolidation.\",\n  \"signalRationale\": \"Price cleared a six-session consolidation on 1.9x average volume while relative strength versus the S&P 500 made a new 20-day high. Momentum, trend and volume conditions aligned at the close.\",\n  \"conditionDetails\": {\n    \"marketConditionAtPublication\": \"Risk-On · score 78\",\n    \"momentum\": \"Accelerating across all three lookbacks\",\n    \"technicalConfirmation\": \"Close above prior range high on 1.9x volume\",\n    \"relativeStrength\": \"New 20-day high vs benchmark\",\n    \"volatilityRegime\": \"Contained · ATR 2.2% of price\",\n    \"liquidity\": \"High institutional participation\"\n  },\n  \"timeline\": [\n    {\n      \"stage\": \"Signal generated\",\n      \"description\": \"All six condition families cleared threshold. Composite score 84.\"\n    },\n    {\n      \"stage\": \"Members notified\",\n      \"description\": \"Delivered in-platform, by email and browser push simultaneously.\"\n    },\n    {\n      \"stage\": \"Entry reference confirmed\",\n      \"description\": \"Reference price .80. Order filled in target bracket.\"\n    },\n    {\n      \"stage\": \"Position tracking active\",\n      \"description\": \"Stop loss set at .40. Target set at .00.\"\n    }\n  ],\n  \"marketCondition\": \"Risk-On\",\n  \"priceBehavior\": \"Breakout\",\n  \"momentum\": \"Strong\",\n  \"liquidity\": \"High\",\n  \"risk\": \"Low\",\n  \"setup\": \"Retest hold\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/signals",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "signals"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Signal (Admin Only)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"OPEN\",\n  \"target\": 158,\n  \"confidence\": \"High\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/signals/{{signalId}}",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "signals",
+                "{{signalId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Signal (Admin Only)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/signals/{{signalId}}",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "signals",
+                "{{signalId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "stock-scanner",
+      "item": [
+        {
+          "name": "Get Scanner Header Statistics (Securities scanned, Matches, Last run)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/stock-scanner/stats",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "stock-scanner",
+                "stats"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Run Stock Scanner (Screenshot 1 Filter Panel & Results Table)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/stock-scanner/run?marketCondition=Risk-On&priceBehavior=Breakout&liquidity=High&momentum=Strong&technicalCondition=Above%2020-DMA&entryCondition=Gap%20hold&sort=Momentum&page=1&limit=10",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "stock-scanner",
+                "run"
+              ],
+              "query": [
+                {
+                  "key": "marketCondition",
+                  "value": "Risk-On",
+                  "description": "Any | Risk-On | Neutral | Risk-Off"
+                },
+                {
+                  "key": "priceBehavior",
+                  "value": "Breakout",
+                  "description": "Any | Breakout | Pullback | Reversal | Range"
+                },
+                {
+                  "key": "liquidity",
+                  "value": "High",
+                  "description": "Any | High | Medium"
+                },
+                {
+                  "key": "momentum",
+                  "value": "Strong",
+                  "description": "Any | Strong | Neutral | Weak"
+                },
+                {
+                  "key": "technicalCondition",
+                  "value": "Above 20-DMA",
+                  "description": "Any | Above 20-DMA | Above 50-DMA | RS new high"
+                },
+                {
+                  "key": "entryCondition",
+                  "value": "Gap hold",
+                  "description": "Any | Retest hold | Gap hold | Level reclaim"
+                },
+                {
+                  "key": "sort",
+                  "value": "Momentum",
+                  "description": "Momentum | Trend | Score | Price | Change"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Stock Scanner Detail (Screenshot 2 & 3: Scores, Chart, Active Signal, Signal History)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/stock-scanner/stock/{{symbol}}",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "stock-scanner",
+                "stock",
+                "{{symbol}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Save Scanner Preset (Screenshot 1 Save preset Button)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Momentum Breakouts Strategy\",\n  \"filters\": {\n    \"marketCondition\": \"Risk-On\",\n    \"priceBehavior\": \"Breakout\",\n    \"liquidity\": \"High\",\n    \"momentum\": \"Strong\",\n    \"technicalCondition\": \"Above 20-DMA\",\n    \"entryCondition\": \"Gap hold\",\n    \"exitCondition\": \"Target / stop\",\n    \"maxStopDistance\": 6,\n    \"minRiskReward\": \"1 : 1.80\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/stock-scanner/presets",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "stock-scanner",
+                "presets"
+              ]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201 || pm.response.code === 200) {",
+                  "    const res = pm.response.json();",
+                  "    if (res.data && res.data._id) {",
+                  "        pm.collectionVariables.set(\"presetId\", res.data._id);",
+                  "        console.log(\"Saved presetId:\", res.data._id);",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Saved Presets",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/stock-scanner/presets",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "stock-scanner",
+                "presets"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Saved Preset",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/stock-scanner/presets/{{presetId}}",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "stock-scanner",
+                "presets",
+                "{{presetId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "watchlist",
+      "item": [
+        {
+          "name": "Get Watchlist Header Statistics (Screenshot 1)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/watchlist/stats",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "watchlist",
+                "stats"
+              ]
+            },
+            "description": "Top 4 Header Statistics Cards matching Screenshot 1: Tickers tracked (6,021.13), With open signals (9), Up today (2), Average move (+0.84%), and subscription ticker limit info."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Watchlist Items (All)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/watchlist?tab=all&page=1&limit=10",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "watchlist"
+              ],
+              "query": [
+                {
+                  "key": "tab",
+                  "value": "all"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "Full watchlist table matching Screenshot 1 with 30-day sparklines, current price, daily change, volume, Market Condition (Risk On/Risk Off), and Signal Setup badge."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Watchlist Items (Filtered: With Signal)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/watchlist?tab=with_signal&page=1&limit=10",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "watchlist"
+              ],
+              "query": [
+                {
+                  "key": "tab",
+                  "value": "with_signal"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "Filter watchlist by tickers that have an active setup or open signal (excluding Hold)."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Watchlist Items (Filtered: Movers)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/watchlist?tab=movers&page=1&limit=10",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "watchlist"
+              ],
+              "query": [
+                {
+                  "key": "tab",
+                  "value": "movers"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "Filter and sort watchlist by top daily percentage movers."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Suggested Scanner Matches (Screenshot 2 Modal)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/watchlist/suggestions",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "watchlist",
+                "suggestions"
+              ]
+            },
+            "description": "Suggested tickers from scanner matches matching Screenshot 2 Modal (AVGO, UNH, CAT, LLY) with isAdded status."
+          },
+          "response": []
+        },
+        {
+          "name": "Search Covered Universe (Screenshot 2 Modal Search)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/watchlist/search?q=NVDA",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "watchlist",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "NVDA"
+                }
+              ]
+            },
+            "description": "Search the covered universe input matching Screenshot 2 Modal."
+          },
+          "response": []
+        },
+        {
+          "name": "Add Ticker to Watchlist",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"symbol\": \"AVGO\",\n  \"companyName\": \"Broadcom Inc\",\n  \"notes\": \"Strong momentum breakout from scanner\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/watchlist",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "watchlist"
+              ]
+            },
+            "description": "Add a stock ticker to the user watchlist (matching the \"+ Add\" button in modal)."
+          },
+          "response": []
+        },
+        {
+          "name": "Remove Ticker from Watchlist",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/watchlist/AVGO",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "watchlist",
+                "AVGO"
+              ]
+            },
+            "description": "Remove a stock ticker from user watchlist."
+          },
+          "response": []
+        },
+        {
+          "name": "Export Watchlist (CSV)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/watchlist/export?format=csv",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "watchlist",
+                "export"
+              ],
+              "query": [
+                {
+                  "key": "format",
+                  "value": "csv"
+                }
+              ]
+            },
+            "description": "Export watchlist table data as CSV (matching Screenshot 1 \"Export\" button)."
+          },
+          "response": []
+        },
+        {
+          "name": "Export Watchlist (JSON)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/watchlist/export?format=json",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "watchlist",
+                "export"
+              ],
+              "query": [
+                {
+                  "key": "format",
+                  "value": "json"
+                }
+              ]
+            },
+            "description": "Export watchlist table data as JSON format."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "news-research",
+      "item": [
+        {
+          "name": "Get All News & Research Articles (Screenshot Main View)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/news?page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "news"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Desk publications on a fixed schedule, plus company news for covered names. Matches Screenshot: \"Showing 1 to 9 of 120 results\" with image cards, publication source, timeAgo, and category tags."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter News by Category: Technology",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/news?category=technology&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "news"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "technology"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter by Technology category tab (e.g. NVIDIA AI partnerships, Apple iOS 17 features, Broadcom interconnects)."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter News by Category: Economy",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/news?category=economy&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "news"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "economy"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter by Economy category tab (e.g. Tesla delivery challenges, Federal Reserve policy, Consumer Confidence)."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter News by Category: Stocks",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/news?category=stocks&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "news"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "stocks"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter by Stocks category tab (e.g. PureBullion desk notes, Amazon retail margins, Caterpillar machinery backlogs)."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter News by Category: ETFs",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/news?category=etfs&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "news"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "etfs"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter by ETFs category tab (e.g. Invesco QQQ inflows, SPY S&P 500, TLT Treasury bonds)."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter News by Category: Education",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/news?category=education&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "news"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "education"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter by Education category tab (e.g. PureBullion Breakout Trading masterclass, Risk Management, Position Sizing)."
+          },
+          "response": []
+        },
+        {
+          "name": "Search News Articles by Keyword",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/news?search=NVIDIA&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "news"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "NVIDIA"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Search news articles matching the \"Search news...\" search bar in the screenshot."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter News by Covered Stock Symbol",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/news?symbol=NVDA&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "news"
+              ],
+              "query": [
+                {
+                  "key": "symbol",
+                  "value": "NVDA"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Company news for covered names (e.g. NVDA, TSLA, AAPL, MSFT, AMZN, GOOGL)."
+          },
+          "response": []
+        },
+        {
+          "name": "Get News Categories with Dynamic Counts",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/news/categories",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "news",
+                "categories"
+              ]
+            },
+            "description": "Get category filter tabs with dynamic article counts: All News (120), Technology, Stocks, ETFs, Economy, Education."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Article Details",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/news/nvidia-shares-rise-on-strong-ai-demand-and-new-data-center-partnerships-1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "news",
+                "nvidia-shares-rise-on-strong-ai-demand-and-new-data-center-partnerships-1"
+              ]
+            },
+            "description": "Get full article reading view, view counts, and related research articles."
+          },
+          "response": []
+        },
+        {
+          "name": "Publish Desk Research / Custom News Article",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"PureBullion Desk Strategy Note: Market Breadth Reversal Signal\",\n  \"summary\": \"Key technical indicators suggest institutional risk-on momentum across large-cap tech while defensive sectors consolidate.\",\n  \"content\": \"Our proprietary condition scoring models have flagged a composite breadth expansion. Breadth indicators across S&P 500 components currently stand at 78/100, driven by aggressive institutional inflows into custom accelerator supply chains and enterprise cloud hyperscalers.\",\n  \"source\": \"PureBullion Research Desk\",\n  \"category\": \"stocks\",\n  \"imageUrl\": \"https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800\",\n  \"relatedSymbols\": [\n    \"NVDA\",\n    \"SPY\",\n    \"QQQ\"\n  ],\n  \"author\": \"Jordan Miller, Senior Macro Strategist\",\n  \"readTime\": \"4 min read\",\n  \"isDeskPublication\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/news",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "news"
+              ]
+            },
+            "description": "Publish an internal PureBullion research desk note or company news article."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "alerts",
+      "item": [
+        {
+          "name": "Get Alerts (All Feed - Screenshot Main View)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/alerts?tab=all&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "alerts"
+              ],
+              "query": [
+                {
+                  "key": "tab",
+                  "value": "all"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Main alerts feed matching Screenshot: Showing 1 to 9 of 120 results. Displays featured MSFT New Signal card, signal proximity, Risk-On market condition, signal closures, community replies, and announcements with timeAgo."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Alerts: Signals Tab",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/alerts?tab=signals&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "alerts"
+              ],
+              "query": [
+                {
+                  "key": "tab",
+                  "value": "signals"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter alerts for Signals category (New signals, proximity triggers, target reached closures)."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Alerts: Market Tab",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/alerts?tab=market&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "alerts"
+              ],
+              "query": [
+                {
+                  "key": "tab",
+                  "value": "market"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter alerts for Market category (Risk-On / Risk-Off shifts, watchlist movers with volume spikes)."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Alerts: Community Tab",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/alerts?tab=community&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "alerts"
+              ],
+              "query": [
+                {
+                  "key": "tab",
+                  "value": "community"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter alerts for Community replies and comments on posts/theses."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Alerts: Announcements Tab",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/alerts?tab=announcements&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "alerts"
+              ],
+              "query": [
+                {
+                  "key": "tab",
+                  "value": "announcements"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter alerts for Admin platform announcements and scanner updates."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Header Unread Count & Subtitle",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/alerts/unread-count",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "alerts",
+                "unread-count"
+              ]
+            },
+            "description": "Header badge endpoint returning unreadCount: 3 and subtitle: \"3 unread · signals, market conditions, community and announcements\"."
+          },
+          "response": []
+        },
+        {
+          "name": "Mark All Alerts as Read (Top Button)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/alerts/read-all",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "alerts",
+                "read-all"
+              ]
+            },
+            "description": "Mark all alerts as read matching the top \"Mark all as read\" button, resetting unread counter to 0 in database and real-time socket."
+          },
+          "response": []
+        },
+        {
+          "name": "Mark Single Alert as Read",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/alerts/REPLACE_WITH_ALERT_ID/read",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "alerts",
+                "REPLACE_WITH_ALERT_ID",
+                "read"
+              ]
+            },
+            "description": "Mark a single alert item as read."
+          },
+          "response": []
+        },
+        {
+          "name": "Dismiss / Delete Alert",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/alerts/REPLACE_WITH_ALERT_ID",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "alerts",
+                "REPLACE_WITH_ALERT_ID"
+              ]
+            },
+            "description": "Dismiss an alert from the feed."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Notification Settings & Quiet Hours (Right Drawer)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/alerts/settings",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "alerts",
+                "settings"
+              ]
+            },
+            "description": "Get current notification settings matching the right-hand drawer (toggles, delivery channels, and quiet hours 20:00 - 06:30)."
+          },
+          "response": []
+        },
+        {
+          "name": "Update Notification Settings & Quiet Hours",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"toggles\": {\n    \"newSignals\": true,\n    \"signalProximity\": true,\n    \"signalClosed\": true,\n    \"marketConditionChange\": true,\n    \"watchlistMovers\": true,\n    \"communityReplies\": true,\n    \"announcements\": true,\n    \"weeklyWrapEmail\": true\n  },\n  \"channels\": {\n    \"inPlatform\": true,\n    \"email\": true,\n    \"browserPush\": true,\n    \"sms\": true\n  },\n  \"quietHours\": {\n    \"enabled\": true,\n    \"from\": \"20:00\",\n    \"to\": \"06:30\",\n    \"description\": \"Alerts outside these hours are queued and delivered at the open.\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/alerts/settings",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "alerts",
+                "settings"
+              ]
+            },
+            "description": "Update notification toggles, channels, or quiet hours from the right-hand settings drawer."
+          },
+          "response": []
+        },
+        {
+          "name": "Test Trigger Live Alert (Real-Time Socket Emission)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"signals\",\n  \"type\": \"new_signal\",\n  \"title\": \"Microsoft (MSFT)\",\n  \"message\": \"New PureBullion long signal opened following breadth confirmation and volume breakout.\",\n  \"isHighlighted\": true,\n  \"data\": {\n    \"symbol\": \"MSFT\",\n    \"entryPrice\": 509.4,\n    \"targetPrice\": 538,\n    \"stopLoss\": 496.2,\n    \"action\": \"BUY\",\n    \"status\": \"Open signal\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/alerts/test-trigger",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "alerts",
+                "test-trigger"
+              ]
+            },
+            "description": "Trigger a test alert and broadcast instantly across Socket.io on /alerts namespace."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "announcements",
+      "item": [
+        {
+          "name": "Admin: Create Announcement (Auto-triggers Alert & Socket Broadcast)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Scanner update: two new exit conditions\",\n  \"message\": \"Volatility expansion and relative-strength deterioration are now available in the stock scanner parameter matrix.\",\n  \"type\": \"scanner_update\",\n  \"targetTiers\": [\n    \"all\"\n  ],\n  \"priority\": \"high\",\n  \"isPublished\": true,\n  \"author\": \"PureBullion Admin\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/admin/announcements",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "announcements"
+              ]
+            },
+            "description": "Admin creates an announcement. When published, automatically creates an alert in users feeds and broadcasts via WebSocket."
+          },
+          "response": []
+        },
+        {
+          "name": "Admin: List All Announcements",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/announcements?page=1&limit=10",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "announcements"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "Admin paginated list of all created announcements."
+          },
+          "response": []
+        },
+        {
+          "name": "Admin: Get Single Announcement",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/announcements/scanner-update-two-new-exit-conditions",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "announcements",
+                "scanner-update-two-new-exit-conditions"
+              ]
+            },
+            "description": "Admin gets details of an announcement by ID or slug."
+          },
+          "response": []
+        },
+        {
+          "name": "Admin: Update Announcement",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Scanner update: two new exit conditions (Updated)\",\n  \"priority\": \"medium\",\n  \"isPublished\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/admin/announcements/REPLACE_WITH_ANNOUNCEMENT_ID",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "announcements",
+                "REPLACE_WITH_ANNOUNCEMENT_ID"
+              ]
+            },
+            "description": "Admin updates announcement details or publication state."
+          },
+          "response": []
+        },
+        {
+          "name": "Admin: Delete Announcement",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/announcements/REPLACE_WITH_ANNOUNCEMENT_ID",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "announcements",
+                "REPLACE_WITH_ANNOUNCEMENT_ID"
+              ]
+            },
+            "description": "Admin deletes an announcement."
+          },
+          "response": []
+        },
+        {
+          "name": "User: Get Active Announcements",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/announcements?tier=all",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "announcements"
+              ],
+              "query": [
+                {
+                  "key": "tier",
+                  "value": "all"
+                }
+              ]
+            },
+            "description": "User-facing list of active, published announcements."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "settings-and-privacy",
+      "item": [
+        {
+          "name": "Get Notification Preferences (Settings Screen)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/user/notification-preferences",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "user",
+                "notification-preferences"
+              ]
+            },
+            "description": "Get notification preferences matching Screenshot 1: New signals, Signal closed, Market condition change, Watchlist movers, Community replies, Daily briefing email, Weekly wrap email."
+          },
+          "response": []
+        },
+        {
+          "name": "Update Notification Preferences",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"toggles\": {\n    \"newSignals\": true,\n    \"signalProximity\": true,\n    \"signalClosed\": true,\n    \"marketConditionChange\": true,\n    \"watchlistMovers\": true,\n    \"communityReplies\": true,\n    \"announcements\": true,\n    \"dailyBriefingEmail\": true,\n    \"weeklyWrapEmail\": true\n  },\n  \"channels\": {\n    \"inPlatform\": true,\n    \"email\": true,\n    \"browserPush\": true,\n    \"sms\": true\n  },\n  \"quietHours\": {\n    \"enabled\": true,\n    \"from\": \"20:00\",\n    \"to\": \"06:30\",\n    \"description\": \"Alerts outside these hours are queued and delivered at the open.\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/user/notification-preferences",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "user",
+                "notification-preferences"
+              ]
+            },
+            "description": "Update notification toggles, channels, or quiet hours from the settings screen."
+          },
+          "response": []
+        },
+        {
+          "name": "Export My Data (Privacy & Data)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/user/privacy/export-data",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "user",
+                "privacy",
+                "export-data"
+              ]
+            },
+            "description": "Download everything held about the user as JSON (profile, watchlist, community posts/comments, scanner presets, notification preferences, alerts, and subscriptions)."
+          },
+          "response": []
+        },
+        {
+          "name": "Delete AI Conversation History & Posts (Privacy & Data)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/user/privacy/conversations",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "user",
+                "privacy",
+                "conversations"
+              ]
+            },
+            "description": "Removes all assistant conversations and community posts/comments from the user's account."
+          },
+          "response": []
+        },
+        {
+          "name": "Close Account (90 Days Grace Period)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"Taking a break from active trading\",\n  \"feedback\": \"Great service, will return in the future\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/user/privacy/close-account",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "user",
+                "privacy",
+                "close-account"
+              ]
+            },
+            "description": "Permanently schedules account deletion after 90 days, cancels recurring Stripe billing, and revokes active sessions."
+          },
+          "response": []
+        },
+        {
+          "name": "Reopen Account (Within 90 Days Window)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/user/privacy/reopen-account",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "user",
+                "privacy",
+                "reopen-account"
+              ]
+            },
+            "description": "Reactivates an account that was scheduled for closure within the 90-day grace period."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "admin-alerts",
+      "item": [
+        {
+          "name": "Get Admin Alert Statistics (Top 3 KPI Cards)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/alerts/stats",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "alerts",
+                "stats"
+              ]
+            },
+            "description": "Top 3 KPI cards matching Screenshot: Delivered today: 18,420 (+8.4), Read rate: 72.8% (+8.4), Failed: 38 (+8.4)."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Notification History Table (Matching Screenshot Table)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/alerts/history?tab=all&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "alerts",
+                "history"
+              ],
+              "query": [
+                {
+                  "key": "tab",
+                  "value": "all"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Notification dispatch history table matching Screenshot: Type (Signal Alert, Luca Moretti, Ben Okafor), Recipient, Channel, Status (Active/Suspended), Created (timeAgo), Delivered, and Read percentage."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Notification History: Suspended Alerts",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/alerts/history?status=suspended&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "alerts",
+                "history"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "suspended"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter notification history for Suspended alerts (e.g. flagged community threads or halted broadcasts)."
+          },
+          "response": []
+        },
+        {
+          "name": "Search Notification History by Keyword",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/alerts/history?search=Signal&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "alerts",
+                "history"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "Signal"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Search across Type, Recipient, and Channel matching the search bar in the screenshot."
+          },
+          "response": []
+        },
+        {
+          "name": "Update Alert Status (Active <-> Suspended)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"suspended\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/admin/alerts/REPLACE_WITH_LOG_ID/status",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "alerts",
+                "REPLACE_WITH_LOG_ID",
+                "status"
+              ]
+            },
+            "description": "Admin can toggle status between Active and Suspended to halt or resume delivery."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Notification Templates (Templates Tab)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/alerts/templates",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "alerts",
+                "templates"
+              ]
+            },
+            "description": "List reusable notification templates matching the Templates tab."
+          },
+          "response": []
+        },
+        {
+          "name": "Create Notification Template",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Intraday Volatility Alert\",\n  \"category\": \"market\",\n  \"channel\": \"push\",\n  \"subject\": \"High Volatility Spike Detected in {{symbol}}\",\n  \"bodyTemplate\": \"Unusual volatility expansion flagged for {{symbol}}. Current stop distance is {{stopDistance}}.\",\n  \"variables\": [\n    \"symbol\",\n    \"stopDistance\",\n    \"timestamp\"\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/admin/alerts/templates",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "alerts",
+                "templates"
+              ]
+            },
+            "description": "Create a reusable notification template."
+          },
+          "response": []
+        },
+        {
+          "name": "Dispatch Manual Broadcast Alert",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"Signal Alert\",\n  \"recipient\": \"Subscribed users\",\n  \"channel\": \"Email\",\n  \"title\": \"PureBullion Verified Breakout Signal: NVDA\",\n  \"message\": \"Long signal opened at $182.42 with profit target $215.00 and stop loss $171.80.\",\n  \"targetTiers\": [\n    \"pro\",\n    \"elite\"\n  ],\n  \"metadata\": {\n    \"symbol\": \"NVDA\",\n    \"entryPrice\": 182.42,\n    \"targetPrice\": 215,\n    \"stopLoss\": 171.8\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/admin/alerts/broadcast",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "alerts",
+                "broadcast"
+              ]
+            },
+            "description": "Admin manual broadcast dispatch with Socket.io real-time emission."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "admin-signals",
+      "item": [
+        {
+          "name": "Get Admin Signals Statistics (Top 3 KPI Cards)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/signals/stats",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "signals",
+                "stats"
+              ]
+            },
+            "description": "Top 3 KPI cards matching Screenshot: Active signals: 24 (+8.4), Target reached: 68.4% (+8.4), Reward: 1 : 2.8 (+8.4)."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Admin Signals Table (Matching Screenshot Table)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/signals?tab=all&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "signals"
+              ],
+              "query": [
+                {
+                  "key": "tab",
+                  "value": "all"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Admin signals table matching Screenshot: Ticker (AAPL), Company (Apple Inc.), Direction (Long), Entry ($172.40), Target ($195.00), Status (Active/Suspended), Performance (+5.8%), Source (Signal engine)."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Admin Signals: Performance Tab",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/signals?tab=performance&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "signals"
+              ],
+              "query": [
+                {
+                  "key": "tab",
+                  "value": "performance"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter signals under the Performance tab (closed/completed trades with performance metrics)."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Admin Signals: Archived Tab",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/signals?tab=archived&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "signals"
+              ],
+              "query": [
+                {
+                  "key": "tab",
+                  "value": "archived"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter signals under the Archived tab."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Admin Signals: Suspended Status",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/signals?status=suspended&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "signals"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "suspended"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter signals that are currently suspended (e.g. Row 2 in screenshot)."
+          },
+          "response": []
+        },
+        {
+          "name": "Search Admin Signals by Keyword",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/signals?search=AAPL&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "signals"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "AAPL"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Search signals table by symbol, company name, or signal ID matching the search bar."
+          },
+          "response": []
+        },
+        {
+          "name": "Toggle Signal Status (Active <-> Suspended)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"suspended\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/admin/signals/REPLACE_WITH_SIGNAL_ID/status",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "signals",
+                "REPLACE_WITH_SIGNAL_ID",
+                "status"
+              ]
+            },
+            "description": "Toggle signal status between Active and Suspended (matching Row 2 suspended pill in screenshot)."
+          },
+          "response": []
+        },
+        {
+          "name": "Admin: Create / Publish New Signal",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"BUY\",\n  \"symbol\": \"AAPL\",\n  \"companyName\": \"Apple Inc.\",\n  \"assetType\": \"Stock\",\n  \"entry\": 172.4,\n  \"target\": 195,\n  \"stopLoss\": 165,\n  \"direction\": \"Long\",\n  \"source\": \"Signal engine\",\n  \"performance\": \"+5.8%\",\n  \"confidence\": \"High\",\n  \"riskReward\": \"1 : 2.8\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/admin/signals",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "signals"
+              ]
+            },
+            "description": "Admin creates and publishes a new verified trade signal."
+          },
+          "response": []
+        },
+        {
+          "name": "Admin: Update Signal",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target\": 200,\n  \"stopLoss\": 168,\n  \"confidence\": \"High\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/admin/signals/REPLACE_WITH_SIGNAL_ID",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "signals",
+                "REPLACE_WITH_SIGNAL_ID"
+              ]
+            },
+            "description": "Admin updates target, stop-loss, or parameters of an existing signal."
+          },
+          "response": []
+        },
+        {
+          "name": "Admin: Delete / Archive Signal",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/signals/REPLACE_WITH_SIGNAL_ID",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "signals",
+                "REPLACE_WITH_SIGNAL_ID"
+              ]
+            },
+            "description": "Admin deletes or archives a signal."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "admin-market-data",
+      "item": [
+        {
+          "name": "Get Market & Data Stats (Top 3 KPI Cards)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/market-data/stats",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "market-data",
+                "stats"
+              ]
+            },
+            "description": "Returns the top 3 KPI metric cards matching Screenshot: Connected services (5 of 6, +8.4), Average latency (84 ms, +8.4), Errors today (3, +8.4)."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Integrations Table (All Tabs, Page 1, Limit 9)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/market-data?tab=all&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "market-data"
+              ],
+              "query": [
+                {
+                  "key": "tab",
+                  "value": "all"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Returns table matching screenshot with 9 rows: Service, Provider, Connection (Active/Suspended), Last sync, Data status (Live), Latency, Recent errors. Displays: Showing 1 to 9 of 120 results."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Integrations: Market Data Tab",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/market-data?tab=market-data&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "market-data"
+              ],
+              "query": [
+                {
+                  "key": "tab",
+                  "value": "market-data"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter services under Market Data tab."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Integrations: News Feed Tab",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/market-data?tab=news-feed&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "market-data"
+              ],
+              "query": [
+                {
+                  "key": "tab",
+                  "value": "news-feed"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter services under News Feed tab."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Integrations: AI Tab",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/market-data?tab=ai&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "market-data"
+              ],
+              "query": [
+                {
+                  "key": "tab",
+                  "value": "ai"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter services under AI tab (e.g. OpenAI GPT-4o, Anthropic Claude)."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Integrations: Payments Tab",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/market-data?tab=payments&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "market-data"
+              ],
+              "query": [
+                {
+                  "key": "tab",
+                  "value": "payments"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter services under Payments tab (e.g. Stripe, PayPal)."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Integrations: Email Tab",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/market-data?tab=email&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "market-data"
+              ],
+              "query": [
+                {
+                  "key": "tab",
+                  "value": "email"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter services under Email tab (e.g. SendGrid, Mailgun, SMTP)."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Integrations: Suspended Status",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/market-data?connection=Suspended&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "market-data"
+              ],
+              "query": [
+                {
+                  "key": "connection",
+                  "value": "Suspended"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter integrations that are currently suspended (e.g. Row 2 in screenshot)."
+          },
+          "response": []
+        },
+        {
+          "name": "Search Integrations (Search... ⌘K)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/market-data?search=Twelve&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "market-data"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "Twelve"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Search integrations by service or provider name."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Integration Details",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/market-data/REPLACE_WITH_INTEGRATION_ID",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "market-data",
+                "REPLACE_WITH_INTEGRATION_ID"
+              ]
+            },
+            "description": "Fetch detailed configuration and sync status of a specific integration."
+          },
+          "response": []
+        },
+        {
+          "name": "Toggle Connection Status (Active <-> Suspended)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"connection\": \"Suspended\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/admin/market-data/REPLACE_WITH_INTEGRATION_ID/status",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "market-data",
+                "REPLACE_WITH_INTEGRATION_ID",
+                "status"
+              ]
+            },
+            "description": "Toggle service connection between Active and Suspended (matching Row 2 suspended pill in screenshot)."
+          },
+          "response": []
+        },
+        {
+          "name": "Trigger Manual Health Check / Sync Test",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/market-data/REPLACE_WITH_INTEGRATION_ID/sync",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "market-data",
+                "REPLACE_WITH_INTEGRATION_ID",
+                "sync"
+              ]
+            },
+            "description": "Trigger an immediate live health check / sync test on the specified integration."
+          },
+          "response": []
+        },
+        {
+          "name": "Admin: Register Custom Integration",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"service\": \"Finnhub Stock News\",\n  \"provider\": \"Finnhub API\",\n  \"category\": \"news_feed\",\n  \"connection\": \"Active\",\n  \"dataStatus\": \"Live\",\n  \"latency\": \"48 ms\",\n  \"recentErrors\": \"None\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/admin/market-data",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "market-data"
+              ]
+            },
+            "description": "Admin registers a new external data service integration."
+          },
+          "response": []
+        },
+        {
+          "name": "Admin: Delete Integration",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/market-data/REPLACE_WITH_INTEGRATION_ID",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "market-data",
+                "REPLACE_WITH_INTEGRATION_ID"
+              ]
+            },
+            "description": "Admin removes an integration."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "admin-dashboard",
+      "item": [
+        {
+          "name": "Get Master Admin Dashboard Overview (30 Days)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/dashboard/overview?timeframe=30d",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "dashboard",
+                "overview"
+              ],
+              "query": [
+                {
+                  "key": "timeframe",
+                  "value": "30d"
+                }
+              ]
+            },
+            "description": "Complete dashboard overview matching screenshot: Top 4 KPI cards (Total Users 12,482, Sub Revenue 24, Active Signals 24, Open Alerts 142), Risk-On Market Regime banner (score 72), User Growth chart (+8.4%), Revenue Overview ($184,620, Successful 3,282, Failed 42), Paid Plan Performance (Plan A 44%, Plan B 33%, Plan C 23%), Recent Activity (Liam Morgan, Amara Cole, etc.), and System Status (1 Service degraded)."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Dashboard by Timeframe: Today",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/dashboard/overview?timeframe=today",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "dashboard",
+                "overview"
+              ],
+              "query": [
+                {
+                  "key": "timeframe",
+                  "value": "today"
+                }
+              ]
+            },
+            "description": "Filters admin dashboard analytics for Today."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Dashboard by Timeframe: 7 Days",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/dashboard/overview?timeframe=7d",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "dashboard",
+                "overview"
+              ],
+              "query": [
+                {
+                  "key": "timeframe",
+                  "value": "7d"
+                }
+              ]
+            },
+            "description": "Filters admin dashboard analytics for 7 Days."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Dashboard by Timeframe: 90 Days",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/dashboard/overview?timeframe=90d",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "dashboard",
+                "overview"
+              ],
+              "query": [
+                {
+                  "key": "timeframe",
+                  "value": "90d"
+                }
+              ]
+            },
+            "description": "Filters admin dashboard analytics for 90 Days."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Top 4 KPI Metric Cards",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/dashboard/kpis?timeframe=30d",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "dashboard",
+                "kpis"
+              ],
+              "query": [
+                {
+                  "key": "timeframe",
+                  "value": "30d"
+                }
+              ]
+            },
+            "description": "Returns the 4 KPI cards matching screenshot: Total Users (12,482, +8.4%), Subscription Revenue (24, +8.4%), Active Signals (24, published to members), Open Alerts (142, across all platform) with full sparkline arrays."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Market Regime & Condition Banner",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/dashboard/market-conditions",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "dashboard",
+                "market-conditions"
+              ]
+            },
+            "description": "Returns Risk-On status pill, headline: \"Conditions favour long setups\", summary breadth, and Condition score: 72."
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Growth Analytics Chart",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/dashboard/user-growth?timeframe=30d",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "dashboard",
+                "user-growth"
+              ],
+              "query": [
+                {
+                  "key": "timeframe",
+                  "value": "30d"
+                }
+              ]
+            },
+            "description": "Returns timeline labels (Feb 01, Feb 08, Feb 15, Feb 22, Mar 01) with series for New users (yellow) and Active users (gray dotted), and +8.4% growth rate."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Revenue Overview & Payment Metrics",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/dashboard/revenue-overview?timeframe=30d",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "dashboard",
+                "revenue-overview"
+              ],
+              "query": [
+                {
+                  "key": "timeframe",
+                  "value": "30d"
+                }
+              ]
+            },
+            "description": "Returns total revenue $184,620 (+5.8%), 12 bar chart values, Successful payments: 3,282, Failed payments: 42."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Paid Plan Performance Breakdown",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/dashboard/plan-performance",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "dashboard",
+                "plan-performance"
+              ]
+            },
+            "description": "Returns plan performance cards matching screenshot: Plan A (44%, 1,482 subs, $52,610), Plan B (33%, 1,126 subs, $68,940), Plan C (23%, 796 subs, $63,070)."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Recent Platform Activity (Audit Trail)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/dashboard/recent-activity?page=1&limit=5",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "dashboard",
+                "recent-activity"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            },
+            "description": "Returns audit trail feed: Liam Morgan, Amara Cole, Signal Engine, Moderation with dynamic time-ago formatting."
+          },
+          "response": []
+        },
+        {
+          "name": "Get System Status & Degraded Alert Notice",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/dashboard/system-status",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "dashboard",
+                "system-status"
+              ]
+            },
+            "description": "Returns system status pill (1 Service degraded), table of 5 services (Market data 42ms, AI service 61ms, News feed 184ms, Payment service 39ms, Email 57ms), and warning alert notice."
+          },
+          "response": []
+        },
+        {
+          "name": "Export Dashboard Report (JSON)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/dashboard/export?timeframe=30d&format=json",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "dashboard",
+                "export"
+              ],
+              "query": [
+                {
+                  "key": "timeframe",
+                  "value": "30d"
+                },
+                {
+                  "key": "format",
+                  "value": "json"
+                }
+              ]
+            },
+            "description": "Triggered by the Export button in the top right of the dashboard. Returns full dashboard snapshot in JSON format."
+          },
+          "response": []
+        },
+        {
+          "name": "Export Dashboard Report (CSV)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/dashboard/export?timeframe=30d&format=csv",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "dashboard",
+                "export"
+              ],
+              "query": [
+                {
+                  "key": "timeframe",
+                  "value": "30d"
+                },
+                {
+                  "key": "format",
+                  "value": "csv"
+                }
+              ]
+            },
+            "description": "Triggered by the Export button in the top right of the dashboard. Returns downloadable CSV structured rows."
+          },
+          "response": []
+        },
+        {
+          "name": "Record Platform Activity Event (Audit Trail)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"actorName\": \"Liam Morgan\",\n  \"actorType\": \"user\",\n  \"action\": \"subscription activated\",\n  \"detail\": \"subscription activated · Plan B\",\n  \"target\": \"Plan B\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/admin/dashboard/activity",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "dashboard",
+                "activity"
+              ]
+            },
+            "description": "Dispatches and records a new activity in the platform audit trail."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "admin-user-management",
+      "item": [
+        {
+          "name": "Get Users Table (All, Page 1, Limit 9)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/users?status=all&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "all"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Returns users table matching Image 1 with 9 rows: USER, EMAIL, SUBSCRIPTIONS (Essential/Professional/Elite), STATUS (Active/Suspended/In Active), Joined, Last Active, and Action buttons. Shows: Showing 1 to 9 of 120 results."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Users by Status: Active",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/users?status=active&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "active"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter users table by Active status pill."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Users by Status: Suspended",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/users?status=suspended&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "suspended"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter users table by Suspended status pill (e.g. Olivia Bennett, Ethan Rodriguez)."
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Users by Status: In Active",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/users?status=inactive&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "inactive"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Filter users table by In Active status pill (e.g. Marcus Chen)."
+          },
+          "response": []
+        },
+        {
+          "name": "Search Users by Name or Email (Search... ⌘K)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/users?search=James&page=1&limit=9",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "James"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "9"
+                }
+              ]
+            },
+            "description": "Search users by name, username, or email string."
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Details: Overview Tab",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/users/usr_001/overview",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "users",
+                "usr_001",
+                "overview"
+              ]
+            },
+            "description": "Matching Image 2: Header (James Wilson, Active, Essential, Joined, Last Active, Timezone), Profile Information card (User ID usr_001, Founding Member: Yes, Email Verified: Yes, Registration Date), and Quick Stats card (Articles Read 42, Watchlist Items 18, Active Alerts 7, AI Conversations 24, Community Posts 12)."
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Details: Activity Timeline Tab",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/users/usr_001/activity",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "users",
+                "usr_001",
+                "activity"
+              ]
+            },
+            "description": "Matching Image 3: Activity Timeline with color-coded dot status for Logged in (green), Viewed security (gray), Updated watchlist (yellow), Created alert (blue), AI conversation (purple), Viewed article (gray), and Community reply (gray)."
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Details: Subscription Tab",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/users/usr_001/subscription",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "users",
+                "usr_001",
+                "subscription"
+              ]
+            },
+            "description": "Matching User Requirement: Current active subscription plan, monthly price ($29.00), renewal date, card ending in 4242, and complete billing/invoice history."
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Details: Watchlist Tab",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/users/usr_001/watchlist",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "users",
+                "usr_001",
+                "watchlist"
+              ]
+            },
+            "description": "Matching User Requirement: List of all securities/stocks saved in user watchlist (NVDA, AAPL, META, TSLA, MSFT) with prices, performance, and added dates."
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Details: Signal Activity's Tab",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/users/usr_001/signals",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "users",
+                "usr_001",
+                "signals"
+              ]
+            },
+            "description": "Matching Image 4: 4 Summary Cards (Signals viewed: 24, Signals followed: 8, Alerts from signals: 12, Signals acted on: 5) and table of interacted signals (NVDA Breakout Bullish Followed, AAPL Momentum Bullish Viewed, META Momentum Bullish Alert Set, TSLA Reversal Bearish Viewed)."
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Details: Community Tab",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/users/usr_001/community",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "users",
+                "usr_001",
+                "community"
+              ]
+            },
+            "description": "Matching Image 5: 4 Summary Cards (POSTS: 12, REPLIES: 48, LIKES: 156, REPORTS: 0) and list of user community posts with replies, likes, and dates."
+          },
+          "response": []
+        },
+        {
+          "name": "Admin: Suspend / Unsuspend User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"Suspended\",\n  \"reason\": \"Account flagged for review\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/admin/users/usr_001/suspend",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "users",
+                "usr_001",
+                "suspend"
+              ]
+            },
+            "description": "Matching the Suspend button in the top action bar and table action row: Admin suspends or reactivates user account."
+          },
+          "response": []
+        },
+        {
+          "name": "Admin: Send Direct Email to User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject\": \"Notice from PureBullion Administration\",\n  \"message\": \"Hello James,\\n\\nWe noticed an update on your account. Please let us know if you need assistance with your subscription or signals.\",\n  \"category\": \"Admin Message\"\n}"
+            },
+            "url": {
+              "raw": "{{baseURL}}/admin/users/usr_001/email",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "users",
+                "usr_001",
+                "email"
+              ]
+            },
+            "description": "Matching the Email button in the user header: Admin sends an email directly to the user's address from our platform."
+          },
+          "response": []
+        },
+        {
+          "name": "Admin: Delete User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/admin/users/usr_001",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "admin",
+                "users",
+                "usr_001"
+              ]
+            },
+            "description": "Matching the trash icon in the users table: Admin deletes user account."
+          },
+          "response": []
+        }
+      ]
     }
   ]
 }
-
