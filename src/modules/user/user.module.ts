@@ -2,8 +2,19 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserController } from './user.controller';
 import { UserService } from './user.service';
+import { AdminUsersController } from './admin-users.controller';
+import { AdminUsersService } from './admin-users.service';
 import { AuthModule } from '../auth/auth.module';
 import { CloudinaryModule } from '../../infrastructure/cloudinary/cloudinary.module';
+import { EmailModule } from '../../infrastructure/email/email.module';
+import {
+  UserActivityLog,
+  UserActivityLogSchema,
+} from './schemas/user-activity-log.schema';
+import {
+  UserSignalActivity,
+  UserSignalActivitySchema,
+} from './schemas/user-signal-activity.schema';
 import {
   WatchlistItem,
   WatchlistItemSchema,
@@ -42,7 +53,10 @@ import {
   imports: [
     AuthModule,
     CloudinaryModule,
+    EmailModule,
     MongooseModule.forFeature([
+      { name: UserActivityLog.name, schema: UserActivityLogSchema },
+      { name: UserSignalActivity.name, schema: UserSignalActivitySchema },
       { name: WatchlistItem.name, schema: WatchlistItemSchema },
       { name: CommunityPost.name, schema: CommunityPostSchema },
       { name: CommunityComment.name, schema: CommunityCommentSchema },
@@ -54,8 +68,8 @@ import {
       { name: SupportMessage.name, schema: SupportMessageSchema },
     ]),
   ],
-  controllers: [UserController],
-  providers: [UserService],
-  exports: [UserService],
+  controllers: [UserController, AdminUsersController],
+  providers: [UserService, AdminUsersService],
+  exports: [UserService, AdminUsersService],
 })
 export class UserModule {}
