@@ -206,6 +206,37 @@ All routes prefixed with `/api/v1`.
 | GET | `/` | Public | Server running check |
 | GET | `/health` | Public | Returns `{ status: 'ok', timestamp }` |
 
+### Internal AI data API — `/api/v1/internal/ai`
+
+Read-only endpoints for the `purebullion-ai` service. Every request needs `Authorization: Bearer <AI_SERVICE_TOKEN>` (not the user JWT); missing or wrong token → `401`. These routes skip the global rate limiter.
+
+The API never returns fallback or synthetic values. If Twelve Data fails, rate-limits or the plan doesn't cover a dataset, the response is `503` with `code: "DATA_UNAVAILABLE"`. Market-data responses include `asOf` (ISO-8601 UTC), `isDelayed` and `source: "twelvedata"`. Errors keep the standard envelope and add `statusCode` and a machine-readable `code` (`DATA_UNAVAILABLE`, `SYMBOL_NOT_FOUND`, `SIGNAL_NOT_FOUND`, `INVALID_SYMBOL`, `VALIDATION_ERROR`, `UNAUTHORIZED`).
+
+| Method | Route | Query | Description |
+|---|---|---|---|
+| GET | `/internal/ai/market-overview` | — | Index ETF proxies, SPDR sector ETFs, NYSE status; missing symbols listed in `missing` |
+| GET | `/internal/ai/quote/:symbol` | — | Full quote for one ticker |
+| GET | `/internal/ai/quotes` | `symbols` (max 20) | Batch quotes; unknown/unavailable tickers in `missing` |
+| GET | `/internal/ai/history/:symbol` | `interval`, `outputsize` (≤ 500) | OHLCV bars, newest first, UTC |
+| GET | `/internal/ai/profile/:symbol` | — | Company profile + `marketCap` (null if statistics unavailable) |
+| GET | `/internal/ai/movers` | `direction` (gainers\|losers\|active), `limit` (≤ 50) | Ranked from a live quote over `AI_MOVERS_UNIVERSE` |
+| GET | `/internal/ai/earnings` | `symbol` **or** `from` + `to` (≤ 31 days) | Earnings; `time` is `BMO` \| `AMC` \| `UNKNOWN` |
+| GET | `/internal/ai/news` | `symbol`, `category`, `since`, `limit` (≤ 50) | From the `news_articles` collection, newest first |
+| GET | `/internal/ai/signals` | `status`, `symbol`, `openedSince`, `closedSince`, `limit` (≤ 200) | `adminStatus: "active"` signals as stored, plus `counts` |
+| GET | `/internal/ai/signals/:signalId` | — | One active signal (e.g. `PB-2481`) |
+
+Symbols must match `^[A-Z][A-Z.-]{0,9}$` (input is uppercased) → otherwise `400`.
+
+Environment variables (see `.env.example`):
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `AI_SERVICE_TOKEN` | — (all requests rejected if unset) | Bearer token the AI service must send |
+| `MARKET_DATA_IS_DELAYED` | `true` | Returned as `isDelayed` on market-data responses |
+| `AI_MOVERS_UNIVERSE` | — (`/movers` returns 503 if unset) | Comma-separated tickers ranked by `/movers` (max 120) |
+
+Twelve Data credits: a batch `/quote` costs one credit per symbol, so `/market-overview` uses about 18 credits per refresh (results cached 60 s) and `/movers` uses one per universe ticker.
+
 ---
 
 ## Request & Response Format
