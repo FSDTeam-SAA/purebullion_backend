@@ -17,6 +17,7 @@ import { WatchlistModule } from './modules/watchlist/watchlist.module';
 import { NewsModule } from './modules/news/news.module';
 import { AlertsModule } from './modules/alerts/alerts.module';
 import { AnnouncementModule } from './modules/announcement/announcement.module';
+import { AiDataModule } from './modules/ai-data/ai-data.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from './infrastructure/database/database.module';
@@ -54,6 +55,7 @@ import { DatabaseModule } from './infrastructure/database/database.module';
     NewsModule,
     AlertsModule,
     AnnouncementModule,
+    AiDataModule,
   ],
   controllers: [AppController],
   providers: [AppService, { provide: APP_GUARD, useClass: ThrottlerGuard }],
