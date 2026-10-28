@@ -70,8 +70,13 @@ export class AiService {
     return conversation;
   }
 
-  async chat(userId: string, dto: ChatDto, res: Response): Promise<void> {
-    const plan = await this.plan(userId);
+  async chat(
+    userId: string,
+    dto: ChatDto,
+    res: Response,
+    testPlanSlug?: string,
+  ): Promise<void> {
+    const plan = testPlanSlug ?? (await this.plan(userId));
     if (dto.conversationId) await this.owned(userId, dto.conversationId);
     const abort = new AbortController();
     let disconnected = false;

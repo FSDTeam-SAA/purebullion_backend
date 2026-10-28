@@ -7,11 +7,14 @@ import {
   Patch,
   Post,
   Query,
+  Req,
   Res,
   SetMetadata,
   UseGuards,
 } from '@nestjs/common';
-import type { Response } from 'express';
+import { NotFoundException, ServiceUnavailableException } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import type { Request, Response } from 'express';
 import { AiService } from './ai.service';
 import {
   ChatDto,
@@ -26,11 +29,23 @@ import { CurrentUser } from '../../common/decorators/current-user.decorator';
 import { RoleType } from '../../common/enums/role.enum';
 import type { UserDocument } from '../auth/schemas/user.schema';
 import { SKIP_RESPONSE_ENVELOPE } from '../../common/interceptors/response.interceptor';
+import { Public } from '../../common/decorators/public.decorator';
+import { join } from 'node:path';
 
 @Controller('ai')
 @UseGuards(JwtAuthGuard, RolesGuard)
 export class AiController {
-  constructor(private readonly ai: AiService) {}
+  constructor(
+    private readonly ai: AiService,
+    private readonly config: ConfigService,
+  ) {}
+
+  @Get('test')
+  @Public()
+  @SetMetadata(SKIP_RESPONSE_ENVELOPE, true)
+  testPage(@Res() res: Response) {
+    return res.sendFile(join(process.cwd(), 'ai-chat-test.html'));
+  }
 
   @Post('chat')
   @SetMetadata(SKIP_RESPONSE_ENVELOPE, true)
@@ -40,6 +55,32 @@ export class AiController {
     @Res() res: Response,
   ) {
     return this.ai.chat(user._id.toString(), dto, res);
+  }
+
+  @Post('test/chat')
+  @SetMetadata(SKIP_RESPONSE_ENVELOPE, true)
+  testChat(
+    @CurrentUser() user: UserDocument,
+    @Body() dto: ChatDto,
+    @Req() req: Request,
+    @Res() res: Response,
+  ) {
+    const address = req.socket.remoteAddress;
+    if (
+      this.config.get<string>('app.env') !== 'development' ||
+      !['127.0.0.1', '::1', '::ffff:127.0.0.1'].includes(address)
+    ) {
+      throw new NotFoundException();
+    }
+    const slug = this.config
+      .get<string>('ai.testPlanSlug', 'basic')
+      .toLowerCase();
+    if (!/^[a-z][a-z0-9_-]{0,31}$/.test(slug)) {
+      throw new ServiceUnavailableException(
+        'Invalid AI test plan configuration',
+      );
+    }
+    return this.ai.chat(user._id.toString(), dto, res, slug);
   }
 
   @Get('conversations')

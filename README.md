@@ -392,6 +392,8 @@ Set `AI_SERVICE_URL` to the internal FastAPI service, `AI_SERVICE_TOKEN` to the 
 
 Authenticated member endpoints under `/api/v1/ai`:
 
+For local testing, open `/api/v1/ai/test` on the backend and log in. The page uses `POST /api/v1/ai/test/chat` by default. That test route accepts a configured `AI_TEST_PLAN_SLUG` (default `basic`) without a paid subscription, but only from loopback in development. The normal `/ai/chat` endpoint always checks the user's active subscription.
+
 - `POST /chat` with `{ "message": "...", "conversationId": "optional UUID" }` streams SSE events. The stream is not wrapped in the JSON response envelope.
 - `GET /conversations?page=1&limit=20` lists conversations.
 - `GET /conversations/:conversationId/messages` returns stored history.

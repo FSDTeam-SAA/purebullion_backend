@@ -53,10 +53,36 @@ function setup(existing = false) {
     drafts as any,
     subscriptions as any,
   );
-  return { service, client, conversations, messages, res };
+  return { service, client, conversations, messages, subscriptions, res };
 }
 
 describe('AiService.chat', () => {
+  it('allows a local test plan while the normal route still requires a subscription', async () => {
+    const t = setup();
+    t.subscriptions.findOne.mockReturnValue({
+      sort: () => ({ populate: () => ({ lean: async () => null }) }),
+    });
+    await expect(
+      t.service.chat(userId, { message: 'test' }, t.res as any),
+    ).rejects.toMatchObject({ status: 403 });
+    t.client.request.mockResolvedValue({
+      headers: new Headers({ 'content-type': 'text/event-stream' }),
+      body: stream(
+        frame('meta', { conversation_id: conversationId }) +
+          frame('done', { message_id: 2 }),
+      ),
+    });
+    await t.service.chat(userId, { message: 'test' }, t.res as any, 'basic');
+    expect(t.client.request).toHaveBeenCalledWith(
+      '/v1/chat',
+      'POST',
+      { message: 'test' },
+      userId,
+      'basic',
+      true,
+      expect.any(AbortSignal),
+    );
+  });
   it('stores a new conversation and exact replaced answer', async () => {
     const t = setup();
     const sse =
