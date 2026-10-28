@@ -111,6 +111,11 @@ export class Signal {
   @Prop({ type: String })
   signalRationale: string;
 
+  @Prop({ type: String }) rationale: string;
+  @Prop({ type: String }) smsLine: string;
+  @Prop({ type: String }) rationaleModel: string;
+  @Prop({ type: String }) rationalePromptVersion: string;
+
   @Prop({ type: SignalConditionItem })
   conditionDetails: SignalConditionItem;
 

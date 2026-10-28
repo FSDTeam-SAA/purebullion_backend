@@ -22,17 +22,23 @@ export class GlobalExceptionFilter implements ExceptionFilter {
 
     let statusCode = HttpStatus.INTERNAL_SERVER_ERROR;
     let message = 'Something went wrong!';
+    let code: string | undefined;
+    let flags: string[] | undefined;
     let errorSources: { path: string; message: string }[] = [
       { path: '', message: 'Something went wrong' },
     ];
 
     if (exception instanceof HttpException) {
+      const retryAfter = (exception as HttpException & { retryAfter?: string }).retryAfter;
+      if (retryAfter) response.setHeader('Retry-After', retryAfter);
       statusCode = exception.getStatus();
       const res = exception.getResponse() as any;
       if (typeof res === 'string') {
         message = res;
         errorSources = [{ path: '', message }];
       } else {
+        if (typeof res.code === 'string') code = res.code;
+        if (Array.isArray(res.flags)) flags = res.flags;
         message = Array.isArray(res.message) ? 'Validation failed' : (res.message || exception.message);
         errorSources = Array.isArray(res.message)
           ? res.message.map((msg: string) => ({ path: '', message: msg }))
@@ -59,8 +65,12 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     }
 
     return response.status(statusCode).json({
+      statusCode,
       success: false,
       message,
+      ...(code && { code }),
+      ...(flags && { flags }),
+      data: null,
       errorSources,
       ...(this.configService.get('app.env') === 'development' && {
         stack: (exception as any)?.stack,

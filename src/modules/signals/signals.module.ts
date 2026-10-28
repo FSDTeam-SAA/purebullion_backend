@@ -6,12 +6,14 @@ import { SignalsService } from './signals.service';
 import { Signal, SignalSchema } from './schemas/signal.schema';
 import { MarketDataModule } from '../market-data/market-data.module';
 import { AuthModule } from '../auth/auth.module';
+import { AiModule } from '../ai/ai.module';
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Signal.name, schema: SignalSchema }]),
     MarketDataModule,
     AuthModule,
+    AiModule,
   ],
   controllers: [SignalsController, AdminSignalsController],
   providers: [SignalsService],

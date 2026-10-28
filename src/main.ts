@@ -25,6 +25,7 @@ async function bootstrap() {
       configService.get<string>('app.adminUrl'),
     ],
     credentials: true,
+    exposedHeaders: ['Retry-After'],
   });
 
   app.useGlobalPipes(

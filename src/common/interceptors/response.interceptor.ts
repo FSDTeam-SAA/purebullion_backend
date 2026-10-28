@@ -22,12 +22,20 @@ export interface ApiResponse<T = any> {
   responseTime: string;
 }
 
+export const SKIP_RESPONSE_ENVELOPE = 'skipResponseEnvelope';
+
 // return data -> interceptor -> format response -> send to client
 
 @Injectable()
 export class ResponseInterceptor implements NestInterceptor {
-  intercept(context: ExecutionContext, next: CallHandler): Observable<ApiResponse> {
+  intercept(
+    context: ExecutionContext,
+    next: CallHandler,
+  ): Observable<ApiResponse> {
     const res = context.switchToHttp().getResponse<Response>();
+    if (Reflect.getMetadata(SKIP_RESPONSE_ENVELOPE, context.getHandler())) {
+      return next.handle() as Observable<ApiResponse>;
+    }
     const startTime = Date.now();
 
     return next.handle().pipe(

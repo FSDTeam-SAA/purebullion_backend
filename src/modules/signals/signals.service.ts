@@ -19,6 +19,7 @@ import {
   createPaginationInfo,
 } from '../../common/utils/pagination.util';
 import { MarketDataService } from '../market-data/market-data.service';
+import { AiService } from '../ai/ai.service';
 
 @Injectable()
 export class SignalsService implements OnModuleInit {
@@ -28,6 +29,7 @@ export class SignalsService implements OnModuleInit {
     @InjectModel(Signal.name)
     private readonly signalModel: Model<SignalDocument>,
     private readonly marketDataService: MarketDataService,
+    private readonly aiService: AiService,
   ) {}
 
   async onModuleInit() {
@@ -298,10 +300,26 @@ export class SignalsService implements OnModuleInit {
       createdBy: adminId ? new Types.ObjectId(adminId.toString()) : undefined,
     });
 
+    await this.attachRationale(signal);
+
     return {
       message: 'Signal created successfully',
       data: signal,
     };
+  }
+
+  private async attachRationale(signal: SignalDocument) {
+    if (!signal.signalId || !/^[A-Za-z0-9_-]{1,32}$/.test(signal.signalId)) return;
+    try {
+      const result = await this.aiService.rationale(signal.signalId);
+      signal.rationale = result.rationale;
+      signal.smsLine = result.sms_line;
+      signal.rationaleModel = result.model;
+      signal.rationalePromptVersion = result.prompt_version;
+      await signal.save();
+    } catch (error) {
+      this.logger.error(`AI rationale generation failed for signal ${signal.signalId}`);
+    }
   }
 
   // ─── Admin: Update Signal ─────────────────────────────────────

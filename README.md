@@ -386,3 +386,17 @@ npm run test:e2e       # End-to-end tests
 | Config / env | `process.env.JWT_SECRET` | `configService.get('auth.secret')` |
 | DB model | `require('../models/User')` | `@InjectModel(User.name)` via DI |
 | Validation | Manual `if (!req.body.email)` | `@IsEmail()` on DTO + `ValidationPipe` |
+# Pure Bullion AI integration
+
+Set `AI_SERVICE_URL` to the internal FastAPI service, `AI_SERVICE_TOKEN` to the same value as its `SERVICE_TOKEN`, and optionally `AI_SERVICE_TIMEOUT_MS` (default `120000`). The token is also used by the existing `/internal/ai` guard. Keep the AI service private; clients only call this backend.
+
+Authenticated member endpoints under `/api/v1/ai`:
+
+- `POST /chat` with `{ "message": "...", "conversationId": "optional UUID" }` streams SSE events. The stream is not wrapped in the JSON response envelope.
+- `GET /conversations?page=1&limit=20` lists conversations.
+- `GET /conversations/:conversationId/messages` returns stored history.
+- `PATCH /conversations/:conversationId` with `{ "title": "..." }` renames a conversation.
+- `DELETE /conversations/:conversationId` hides it from the UI.
+- `GET /briefings` lists published briefings.
+
+Admin endpoints under the same prefix: `POST /admin/briefings/generate`, `GET /admin/briefings`, `PATCH /admin/briefings/:id/approve`, `/reject`, `/publish`, and `POST /admin/knowledge/ingest`. Signal creation requests an AI rationale after the signal is saved, then stores the result on that signal.
