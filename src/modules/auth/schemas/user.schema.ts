@@ -134,6 +134,8 @@ UserSchema.pre('save', async function (next) {
 UserSchema.methods.comparePassword = function (
   plain: string,
 ): Promise<boolean> {
+  // Accounts without a stored hash (e.g. created outside /auth/register) must not crash bcrypt.
+  if (!plain || !this.password) return Promise.resolve(false);
   return bcrypt.compare(plain, this.password);
 };
 

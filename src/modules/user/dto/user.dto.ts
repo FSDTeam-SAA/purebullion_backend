@@ -20,6 +20,7 @@ export class UpdateUserDto {
   @IsOptional() @IsString() roadArea?: string;
   @IsOptional() @IsString() postalCode?: string;
   @IsOptional() @IsString() taxId?: string;
+  @IsOptional() @IsString() timezone?: string;
 }
 
 export class GetUsersQueryDto {

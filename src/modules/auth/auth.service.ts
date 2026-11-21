@@ -74,7 +74,10 @@ export class AuthService {
 
     const isMatch = await user.comparePassword(dto.password);
     if (!isMatch) {
-      throw new HttpException('Invalid password', HttpStatus.BAD_REQUEST);
+      throw new HttpException(
+        'Invalid email or password. If this account was created without a password, use "Forgot password" to set one.',
+        HttpStatus.BAD_REQUEST,
+      );
     }
 
     const payload      = { _id: user._id.toString(), role: user.role };
