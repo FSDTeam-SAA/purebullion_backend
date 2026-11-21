@@ -102,25 +102,44 @@ export class StockScannerService {
 
     let filtered = [...scoredList];
 
-    // Filter by Market Condition
-    if (dto.marketCondition && dto.marketCondition !== 'Any') {
-      filtered = filtered.filter((s) => s.marketCondition === dto.marketCondition);
+    // Multi-select aware filters: value may be 'Any', a single value or a comma-separated list
+    const toList = (v?: string): string[] | null => {
+      if (!v) return null;
+      const items = String(v).split(',').map((x) => x.trim()).filter(Boolean);
+      return items.length === 0 || items.some((x) => x.toLowerCase() === 'any') ? null : items;
+    };
+    const marketCondition = toList(dto.marketCondition);
+    const priceBehavior = toList(dto.priceBehavior);
+    const liquidity = toList(dto.liquidity);
+    const momentum = toList(dto.momentum);
+    const entryCondition = toList(dto.entryCondition);
+
+    if (marketCondition) filtered = filtered.filter((s) => marketCondition.includes(s.marketCondition));
+    if (priceBehavior) filtered = filtered.filter((s) => priceBehavior.includes(s.priceBehavior));
+    if (liquidity) filtered = filtered.filter((s) => liquidity.includes(s.liquidity));
+    if (momentum) filtered = filtered.filter((s) => momentum.includes(s.momentum));
+    if (entryCondition) {
+      filtered = filtered.filter((s) =>
+        entryCondition.some((e) => s.setup.toLowerCase().includes(e.toLowerCase())),
+      );
     }
-    // Filter by Price Behavior
-    if (dto.priceBehavior && dto.priceBehavior !== 'Any') {
-      filtered = filtered.filter((s) => s.priceBehavior === dto.priceBehavior);
+
+    // Risk parameters (only applied when the stock has defined levels)
+    if (dto.maxStopDistance !== undefined && dto.maxStopDistance !== null) {
+      filtered = filtered.filter((s) =>
+        s.entry && s.stopLoss ? (Math.abs(s.entry - s.stopLoss) / s.entry) * 100 <= dto.maxStopDistance! : true,
+      );
     }
-    // Filter by Liquidity
-    if (dto.liquidity && dto.liquidity !== 'Any') {
-      filtered = filtered.filter((s) => s.liquidity === dto.liquidity);
-    }
-    // Filter by Momentum
-    if (dto.momentum && dto.momentum !== 'Any') {
-      filtered = filtered.filter((s) => s.momentum === dto.momentum);
-    }
-    // Filter by Entry Condition
-    if (dto.entryCondition && dto.entryCondition !== 'Any') {
-      filtered = filtered.filter((s) => s.setup.toLowerCase().includes(dto.entryCondition!.toLowerCase()));
+    if (dto.minRiskReward) {
+      const [a, b] = dto.minRiskReward.split(':').map((x) => parseFloat(x.trim()));
+      const minRatio = a && b ? b / a : NaN;
+      if (!isNaN(minRatio)) {
+        filtered = filtered.filter((s) => {
+          if (!s.entry || !s.stopLoss || !s.target) return true;
+          const risk = Math.abs(s.entry - s.stopLoss);
+          return risk > 0 ? Math.abs(s.target - s.entry) / risk >= minRatio : true;
+        });
+      }
     }
 
     // Sort: Momentum (default) or other
@@ -128,6 +147,8 @@ export class StockScannerService {
       filtered.sort((a, b) => b.price - a.price);
     } else if (dto.sort === 'Change') {
       filtered.sort((a, b) => b.percentChange - a.percentChange);
+    } else if (dto.sort === 'Liquidity') {
+      filtered.sort((a, b) => b.liquidityScore - a.liquidityScore);
     } else if (dto.sort === 'Score') {
       filtered.sort((a, b) => b.compositeScore - a.compositeScore);
     } else {
