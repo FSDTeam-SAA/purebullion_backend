@@ -56,6 +56,23 @@ export class WatchlistService {
       userId: targetUserId,
     });
 
+    // Anonymous callers get the demo count; authenticated users get their real data
+    if (userId) {
+      const live = await this.getWatchlist(userId, { limit: '1000' } as any);
+      return {
+        message: 'Watchlist statistics fetched successfully',
+        data: {
+          tickersTracked: count,
+          tickersTrackedFormatted: `${count}`,
+          tickersTrackedUniverseLabel: `${COVERED_UNIVERSE.length}`,
+          withOpenSignals: live.data.stats.withOpenSignals,
+          upToday: live.data.stats.upToday,
+          averageMove: live.data.stats.averageMove,
+          limitInfo: `${count} of unlimited tickers · updated at the close`,
+        },
+      };
+    }
+
     const itemsCount = count > 0 ? count : 7; // Default 7 watched stocks from Screenshot 1
 
     return {
@@ -90,7 +107,7 @@ export class WatchlistService {
     let userSymbols = dbItems.map((i) => i.symbol);
 
     // If user has no items saved yet, display the default 7 tickers from Screenshot 1
-    if (userSymbols.length === 0) {
+    if (userSymbols.length === 0 && !userId) {
       userSymbols = ['NVDA', 'AAPL', 'AMZN', 'TSLA', 'GOOGL', 'AMD', 'DIS'];
     }
 
@@ -126,7 +143,7 @@ export class WatchlistService {
         paginationInfo: createPaginationInfo(page, limit, total),
         stats: {
           tickersTracked: total,
-          withOpenSignals: items.filter((i) => i.activeSignalId).length || 9,
+          withOpenSignals: items.filter((i) => i.activeSignalId).length || (userId ? 0 : 9),
           upToday: items.filter((i) => i.percentChange > 0).length,
           averageMove: this.calcAverageMove(items),
           limitInfo: `${total} of unlimited tickers · updated at the close`,
@@ -321,7 +338,7 @@ export class WatchlistService {
   }
 
   private calcAverageMove(items: any[]): string {
-    if (!items || items.length === 0) return '+0.84%';
+    if (!items || items.length === 0) return '0.00%';
     const avg = items.reduce((sum, i) => sum + (i.percentChange || 0), 0) / items.length;
     return `${avg >= 0 ? '+' : ''}${avg.toFixed(2)}%`;
   }

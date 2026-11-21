@@ -591,8 +591,8 @@ export class UserService {
 
     // Cancel active subscriptions so user will never be charged
     await this.subscriptionModel.updateMany(
-      { user: uid, status: 'active' },
-      { $set: { status: 'canceled' } },
+      { user: uid, status: 'ACTIVE' },
+      { $set: { status: 'CANCELLED', cancelledAt: new Date(), autoRenew: false } },
     );
 
     return {

@@ -27,10 +27,26 @@ export class JwtAuthGuard implements CanActivate {
       context.getHandler(),
       context.getClass(),
     ]);
-    if (isPublic) return true;
-
     const request = context.switchToHttp().getRequest();
     const token = this.extractToken(request);
+
+    if (isPublic) {
+      // Optional auth: if a valid token is supplied on a @Public route, still
+      // attach the user so handlers can personalise; never reject.
+      if (token) {
+        try {
+          const decoded = this.jwtService.verify(token, {
+            secret: this.configService.get<string>('auth.accessTokenSecret'),
+          });
+          const user = await this.userModel.findById(decoded._id).select(USER_SELECT_FIELDS);
+          if (user) request.user = user;
+        } catch {
+          /* ignore invalid token on public routes */
+        }
+      }
+      return true;
+    }
+
     if (!token) throw new UnauthorizedException('No token provided');
 
     try {

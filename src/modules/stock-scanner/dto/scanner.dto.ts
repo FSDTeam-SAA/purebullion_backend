@@ -11,28 +11,28 @@ import { Type } from 'class-transformer';
 
 export class RunScanDto {
   @IsOptional()
-  @IsIn(['Any', 'Risk-On', 'Neutral', 'Risk-Off'])
-  marketCondition?: string;
+  @IsString()
+  marketCondition?: string; // single value, 'Any', or comma-separated list
 
   @IsOptional()
-  @IsIn(['Any', 'Breakout', 'Pullback', 'Reversal', 'Range'])
-  priceBehavior?: string;
+  @IsString()
+  priceBehavior?: string; // single value, 'Any', or comma-separated list
 
   @IsOptional()
-  @IsIn(['Any', 'High', 'Medium', 'Low'])
-  liquidity?: string;
+  @IsString()
+  liquidity?: string; // single value, 'Any', or comma-separated list
 
   @IsOptional()
-  @IsIn(['Any', 'Strong', 'Improving', 'Neutral', 'Weak'])
-  momentum?: string;
+  @IsString()
+  momentum?: string; // single value, 'Any', or comma-separated list
 
   @IsOptional()
-  @IsIn(['Any', 'Above 20-DMA', 'Above 50-DMA', 'RS new high'])
-  technicalCondition?: string;
+  @IsString()
+  technicalCondition?: string; // single value, 'Any', or comma-separated list
 
   @IsOptional()
-  @IsIn(['Any', 'Retest hold', 'Gap hold', 'Level reclaim'])
-  entryCondition?: string;
+  @IsString()
+  entryCondition?: string; // single value, 'Any', or comma-separated list
 
   @IsOptional()
   @IsString()
@@ -50,7 +50,7 @@ export class RunScanDto {
   minRiskReward?: string; // "1 : 1.80", "1 : 2.00"
 
   @IsOptional()
-  @IsIn(['Momentum', 'Trend', 'Score', 'Price', 'Change'])
+  @IsIn(['Momentum', 'Liquidity', 'Trend', 'Score', 'Price', 'Change'])
   sort?: string = 'Momentum';
 
   @IsOptional()

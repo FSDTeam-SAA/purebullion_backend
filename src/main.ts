@@ -19,11 +19,20 @@ async function bootstrap() {
 
   app.setGlobalPrefix('api/v1');
 
+  // Normalise configured origins (trim + drop trailing slash) so
+  // "http://localhost:3000/" in .env still matches the browser Origin header.
+  const origins = [
+    configService.get<string>('app.frontendUrl'),
+    configService.get<string>('app.adminUrl'),
+    'http://localhost:3000',
+  ]
+    .filter((o): o is string => !!o && o !== '*' && o !== '#')
+    .flatMap((o) => o.split(','))
+    .map((o) => o.trim().replace(/\/+$/, ''))
+    .filter(Boolean);
+
   app.enableCors({
-    origin: [
-      configService.get<string>('app.frontendUrl'),
-      configService.get<string>('app.adminUrl'),
-    ],
+    origin: [...new Set(origins)],
     credentials: true,
   });
 
