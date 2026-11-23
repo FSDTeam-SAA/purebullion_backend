@@ -21,18 +21,21 @@ async function bootstrap() {
 
   // Normalise configured origins (trim + drop trailing slash) so
   // "http://localhost:3000/" in .env still matches the browser Origin header.
-  const origins = [
+  const configured = [
     configService.get<string>('app.frontendUrl'),
     configService.get<string>('app.adminUrl'),
-    'http://localhost:3000',
-  ]
+  ];
+  // ADMIN_URL defaults to '*' (or can be set to '*' explicitly): allow any
+  // origin. Set it to the real dashboard domain(s) to lock this down.
+  const allowAll = configured.some((o) => o?.trim() === '*');
+  const origins = [...configured, 'http://localhost:3000']
     .filter((o): o is string => !!o && o !== '*' && o !== '#')
     .flatMap((o) => o.split(','))
     .map((o) => o.trim().replace(/\/+$/, ''))
     .filter(Boolean);
 
   app.enableCors({
-    origin: [...new Set(origins)],
+    origin: allowAll ? true : [...new Set(origins)],
     credentials: true,
   });
 
